@@ -7,6 +7,8 @@ interface IUsersRepository {
     email,
     password,
     driver_license,
+    avatar,
+    id,
   }: ICreateUserDTO): Promise<void>;
   findByEmail(email: string): Promise<User>;
   findById(id: string): Promise<User>;

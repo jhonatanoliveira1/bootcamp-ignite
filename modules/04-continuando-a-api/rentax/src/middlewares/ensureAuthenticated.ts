@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 
@@ -34,6 +35,10 @@ export async function ensureAuthenticated(
     if (!user) {
       throw new AppError('User does not exists!', 401);
     }
+
+    request.user = {
+      id: user_id,
+    };
 
     next();
   } catch {
