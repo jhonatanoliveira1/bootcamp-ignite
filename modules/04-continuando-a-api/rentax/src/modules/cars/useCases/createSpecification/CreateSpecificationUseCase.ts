@@ -1,9 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import {
-  ISpecificationsRepository,
-  ICreateSpecificationDTO,
-} from '../../repositories/ISpecificationsRepository';
+import ICreateSpecificationDTO from '../../dtos/ICreateSpecificationDTO';
+import ISpecificationsRepository from '../../repositories/ISpecificationsRepository';
 
 @injectable()
 class CreateSpecificationUseCase {
