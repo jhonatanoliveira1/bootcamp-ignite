@@ -2,8 +2,8 @@ import csvParse from 'csv-parse';
 import fs from 'fs';
 import { inject, injectable } from 'tsyringe';
 
-import ICreateSpecificationDTO from '../../dtos/ICreateSpecificationDTO';
-import ICategoriesRepository from '../../repositories/ICategoriesRepository';
+import ICreateSpecificationDTO from '@modules/cars/dtos/ICreateSpecificationDTO';
+import ICategoriesRepository from '@modules/cars/repositories/ICategoriesRepository';
 
 @injectable()
 class ImportCategoryUseCase {
