@@ -1,10 +1,9 @@
-.idea/
-node_modules/
-build/
-temp/
-.env
+node_modules
+.vscode
+tmp/*
 coverage
-dist
-
-tmp/
+.env
 !tmp/.gitkeep
+dist
+ormconfig.json
+package-lock.json
