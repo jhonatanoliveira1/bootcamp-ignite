@@ -1,6 +1,7 @@
 import ICreateRentalDTO from '@modules/rentals/dtos/ICreateRentalDTO';
 import Rental from '@modules/rentals/infra/typeorm/entities/Rental';
-import IRentalsRepository from '@modules/rentals/infra/typeorm/repositories/IRentalsRepository';
+
+import IRentalsRepository from '../IRentalsRepository';
 
 class RentalsRepositoryInMemory implements IRentalsRepository {
   rentals: Rental[] = [];
@@ -26,8 +27,8 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
 
     Object.assign(rental, {
       car_id,
-      user_id,
       expected_return_date,
+      user_id,
       start_date: new Date(),
     });
 
