@@ -11,7 +11,7 @@ import createConnection from '@shared/infra/typeorm';
 
 import swaggerFile from '../../../swagger.json';
 
-createConnection();
+createConnection('database');
 const app = express();
 
 app.use(express.json());
