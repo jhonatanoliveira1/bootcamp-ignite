@@ -13,39 +13,39 @@
       "post": {
         "tags": ["Category"],
         "summary": "Create a category",
-          "description": "Create a new category",
-          "security": [
-            { "bearerAuth": []}
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    }
-                  },
-                  "example": {
-                    "name": "Category name sample",
-                    "description": "Category description sample"
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Created"
-            },
-            "500": {
-              "description": "Category already exists"
-            }
-          }
+         "description": "Create a new category",
+         "security": [
+          { "bearerAuth": []}
+         ],
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type": "object",
+                 "properties": {
+                   "name": {
+                     "type": "string"
+                   },
+                   "description": {
+                     "type": "string"
+                   }
+                 },
+                 "example": {
+                   "name": "Category name sample",
+                   "description": "Category description sample"
+                 }
+               }
+             }
+           }
+         },
+         "responses": {
+           "201": {
+             "description": "Created"
+           },
+           "500": {
+             "description": "Category already exists"
+           }
+         }
       },
       "get": {
         "tags": ["Category"],
@@ -83,7 +83,7 @@
         "description": "Upload a new category",
         "security": [
           { "bearerAuth": []}
-        ],
+         ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -113,7 +113,7 @@
         "description": "Create a new specification",
         "security": [
           { "bearerAuth": []}
-        ],
+         ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -156,7 +156,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Success"
           },
           "400": {
@@ -172,7 +172,7 @@
         "description": "Create a new car",
         "security": [
           { "bearerAuth": []}
-        ],
+         ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -188,6 +188,50 @@
           },
           "400": {
             "description": "Car already exists!"
+          }
+        }
+      }
+    },
+    "/cars/images/{id}": {
+      "post": {
+        "tags": ["Cars"],
+        "summary": "Upload images",
+        "description": "Upload images",
+        "security": [
+          { "bearerAuth": []}
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Car id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
           }
         }
       }
@@ -217,7 +261,7 @@
         "daily_rate": {
           "type": "number"
         },
-        "license_place": {
+        "license_plate": {
           "type": "string"
         },
         "fine_amount": {
