@@ -29,7 +29,7 @@ class DevolutionRentalUseCase {
     const minimumDaily = 1;
 
     if (!rental) {
-      throw new AppError('Rental does not exits!');
+      throw new AppError('Rental does not exists!');
     }
 
     const dateNow = this.dateProvider.dateNow();
@@ -58,11 +58,11 @@ class DevolutionRentalUseCase {
     total += daily * car.daily_rate;
 
     rental.end_date = this.dateProvider.dateNow();
-
     rental.total = total;
 
     await this.rentalsRepository.create(rental);
-    await this.carsRepository.updateAVailable(car.id, true);
+
+    await this.carsRepository.updateAvailable(car.id, true);
 
     return rental;
   }
