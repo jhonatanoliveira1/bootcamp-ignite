@@ -24,4 +24,4 @@ rentalRoutes.get(
   listRentalsByUserController.handle,
 );
 
-export default rentalRoutes;
+export { rentalRoutes };
